@@ -13,8 +13,10 @@ def geometric_mean(data,n):
 
 
 def harmonic_mean(data,n):
-    data = [ 1/x for x in data ]
-    mean = n/sum(data)
+    data_0 = [ i for i in data if i!=0 ]
+    print(data_0)
+    up_data = [ 1/x for x in data_0 ]
+    mean = n/sum(up_data)
     return mean
 
 
@@ -76,15 +78,15 @@ def plot(data):
 
 
 def main():
-    data = [44,46,49,52,55,62,67,72,77,80,83,86,88,90,92,94,99,100,101,106]
+    data = [44,46,49,52,55,62,67,72,77,80,83,86,88,90,92,94,99,100,101,106,0]
     print('Data: ',data)
     n = len(data)
     a_mean = arithmetic_mean(data,n)
     print('Arithmetic mean: ',round(a_mean,2))
     g_mean = geometric_mean(data,n)
-    print('Geometric mean',round(g_mean,2))
+    print('Geometric mean: ',round(g_mean,2))
     h_mean = harmonic_mean(data,n)
-    print('Harmonic mean',round(h_mean,2))
+    print('Harmonic mean: ',round(h_mean,2))
     med = median(data,n)
     print('Median: ',med)
     # plot(data)
